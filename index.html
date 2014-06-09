@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Predicting Miles Per Gallon</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Predicting Miles Per Gallon">
+  <meta name="author" content="tucuxi">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Predicting Miles Per Gallon</h1>
+    <h2>Homework Assignment of Developing Data Products</h2>
+    <p>tucuxi<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Overview</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Fuel consumption of cars is getting more and more important. A commonly used
+measure for fuel consumption is <strong>Miles Per Gallon</strong> (MPG).</p>
+
+<p>Using R and Shiny, we build a web application for predicting
+MPG from basic car specification data.</p>
+
+<p>The presentation is organized as follows:</p>
+
+<ol>
+<li>Data set</li>
+<li>Linear model for predicting miles per gallon</li>
+<li>Shiny application</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>Data Set</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>We use the <strong>mtcars</strong> data set from package <strong>datasets</strong>. It contains data
+extracted from the 1974 Motor Trend US magazine for 32 cars.</p>
+
+<table><thead>
+<tr>
+<th>Row</th>
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>mpg</td>
+<td>Miles/(US) gallon</td>
+</tr>
+<tr>
+<td>2</td>
+<td>cyl</td>
+<td>Number of cylinders</td>
+</tr>
+<tr>
+<td>3</td>
+<td>disp</td>
+<td>Displacement (cu.in.)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>hp</td>
+<td>Gross horsepower</td>
+</tr>
+<tr>
+<td>5</td>
+<td>drat</td>
+<td>Rear axle ratio</td>
+</tr>
+<tr>
+<td>6</td>
+<td>wt</td>
+<td>Weight (lb/1000)</td>
+</tr>
+<tr>
+<td>7</td>
+<td>qsec</td>
+<td>1/4 mile time</td>
+</tr>
+<tr>
+<td>8</td>
+<td>vs</td>
+<td>V/S</td>
+</tr>
+<tr>
+<td>9</td>
+<td>am</td>
+<td>Transmission (0 = automatic, 1 = manual)</td>
+</tr>
+<tr>
+<td>10</td>
+<td>gear</td>
+<td>Number of forward gears</td>
+</tr>
+<tr>
+<td>11</td>
+<td>carb</td>
+<td>Number of carburetors</td>
+</tr>
+</tbody></table>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Linear Model for Predicting Miles Per Gallon</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>We build a linear model for mpg with two predictors:
+weight (wt) and number of cylinders (cyl).</p>
+
+<pre><code>## 
+## Call:
+## lm(formula = mpg ~ wt + factor(cyl), data = mtcars)
+## 
+## Coefficients:
+##  (Intercept)            wt  factor(cyl)6  factor(cyl)8  
+##        33.99         -3.21         -4.26         -6.07
+</code></pre>
+
+<p>This model has statistically significant P-values (&lt; 0.05):</p>
+
+<pre><code class="r">summary(lm)$coefficients[, 4]
+</code></pre>
+
+<pre><code>##  (Intercept)           wt factor(cyl)6 factor(cyl)8 
+##    6.257e-17    2.130e-04    4.718e-03    9.992e-04
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Shiny Application</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The <a href="http://tucuxi.shinyapps.io/data_products">web application</a> allows
+the user to enter number of cylinders and weight. It displays a figure
+representing the linear model and highlights the predicted mpg value.</p>
+
+<p>At the heart of the application is the prediction of the mpg value. This
+is done with the linear model and the predict() function.</p>
+
+<p>For instance, with 6 cylinders and a weight of 3,500 lbs:</p>
+
+<pre><code class="r">predict(lm, data.frame(cyl = 6, wt = 3.5))
+</code></pre>
+
+<pre><code>##     1 
+## 18.52
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Overview'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Data Set'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Linear Model for Predicting Miles Per Gallon'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Shiny Application'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
