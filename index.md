@@ -12,13 +12,13 @@ mode        : selfcontained # {standalone, draft}
 
 ## Overview
 
-Fuel consumption of cars is getting more and more important. A commonly used
-measure for fuel consumption is **Miles Per Gallon** (MPG).
+Fuel efficiency is getting more important for car buyers. A commonly used
+measure for fuel consumption is **Miles Per Gallon** (mpg).
 
-Using R and Shiny, we build a web application for predicting
-MPG from basic car specification data.
+Using R and Shiny, we build a web application for predicting mpg from basic
+car specifications.
 
-The presentation is organized as follows:
+The remainder of the presentation is organized as follows:
 
 1. Data set
 2. Linear model for predicting miles per gallon
@@ -30,22 +30,22 @@ The presentation is organized as follows:
 
 
 
-We use the **mtcars** data set from package **datasets**. It contains data
-extracted from the 1974 Motor Trend US magazine for 32 cars.
+We use the **mtcars** data set from the **datasets** package. It contains
+data extracted from the Motor Trend US magazine for 32 cars.
 
-Row  | Variable    | Description
----- | ----------- | -------------------
-1    | mpg         | Miles/(US) gallon
-2    | cyl         | Number of cylinders
-3    | disp        | Displacement (cu.in.)
-4    | hp          | Gross horsepower
-5    | drat        | Rear axle ratio
-6    | wt          | Weight (lb/1000)
-7    | qsec	       | 1/4 mile time
-8    | vs	       | V/S
-9    | am	       | Transmission (0 = automatic, 1 = manual)
-10   | gear	       | Number of forward gears
-11   | carb	       | Number of carburetors
+Column  | Variable    | Description
+------- | ----------- | -------------------
+1       | mpg         | Miles/(US) gallon
+2       | cyl         | Number of cylinders
+3       | disp        | Displacement (cu.in.)
+4       | hp          | Gross horsepower
+5       | drat        | Rear axle ratio
+6       | wt          | Weight (lb/1000)
+7       | qsec	      | 1/4 mile time
+8       | vs	      | V/S
+9       | am	      | Transmission (0 = automatic, 1 = manual)
+10      | gear	      | Number of forward gears
+11      | carb	      | Number of carburetors
 
 ---
 
@@ -65,7 +65,7 @@ weight (wt) and number of cylinders (cyl).
 ##        33.99         -3.21         -4.26         -6.07
 ```
 
-This model has statistically significant P-values (< 0.05):
+This model has statistically significant P-values (< 0.05) as shown below:
 
 
 ```r
@@ -81,14 +81,16 @@ summary(lm)$coefficients[, 4]
 
 ## Shiny Application
 
-The [web application](http://tucuxi.shinyapps.io/data_products) allows
-the user to enter number of cylinders and weight. It displays a figure
-representing the linear model and highlights the predicted mpg value.
+The [web application](http://tucuxi.shinyapps.io/data_products) built
+with [Shiny](http://shiny.rstudio.com) allows the user to enter the
+number of cylinders and weight. It visualizes the linear model and
+highlights the predicted mpg value in the diagram.
 
-At the heart of the application is the prediction of the mpg value. This
-is done with the linear model and the predict() function.
+At the heart of the application is the calculation of the mpg value. The
+value is computed with the linear model and the predict() function.
 
-For instance, with 6 cylinders and a weight of 3,500 lbs:
+For instance, for a care with 6 cylinders and a weight of 3,500 lbs, our
+model predicts:
 
 
 ```r

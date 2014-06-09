@@ -46,13 +46,13 @@
     <h2>Overview</h2>
   </hgroup>
   <article data-timings="">
-    <p>Fuel consumption of cars is getting more and more important. A commonly used
-measure for fuel consumption is <strong>Miles Per Gallon</strong> (MPG).</p>
+    <p>Fuel efficiency is getting more important for car buyers. A commonly used
+measure for fuel consumption is <strong>Miles Per Gallon</strong> (mpg).</p>
 
-<p>Using R and Shiny, we build a web application for predicting
-MPG from basic car specification data.</p>
+<p>Using R and Shiny, we build a web application for predicting mpg from basic
+car specifications.</p>
 
-<p>The presentation is organized as follows:</p>
+<p>The remainder of the presentation is organized as follows:</p>
 
 <ol>
 <li>Data set</li>
@@ -69,12 +69,12 @@ MPG from basic car specification data.</p>
     <h2>Data Set</h2>
   </hgroup>
   <article data-timings="">
-    <p>We use the <strong>mtcars</strong> data set from package <strong>datasets</strong>. It contains data
-extracted from the 1974 Motor Trend US magazine for 32 cars.</p>
+    <p>We use the <strong>mtcars</strong> data set from the <strong>datasets</strong> package. It contains
+data extracted from the Motor Trend US magazine for 32 cars.</p>
 
 <table><thead>
 <tr>
-<th>Row</th>
+<th>Column</th>
 <th>Variable</th>
 <th>Description</th>
 </tr>
@@ -157,7 +157,7 @@ weight (wt) and number of cylinders (cyl).</p>
 ##        33.99         -3.21         -4.26         -6.07
 </code></pre>
 
-<p>This model has statistically significant P-values (&lt; 0.05):</p>
+<p>This model has statistically significant P-values (&lt; 0.05) as shown below:</p>
 
 <pre><code class="r">summary(lm)$coefficients[, 4]
 </code></pre>
@@ -175,14 +175,16 @@ weight (wt) and number of cylinders (cyl).</p>
     <h2>Shiny Application</h2>
   </hgroup>
   <article data-timings="">
-    <p>The <a href="http://tucuxi.shinyapps.io/data_products">web application</a> allows
-the user to enter number of cylinders and weight. It displays a figure
-representing the linear model and highlights the predicted mpg value.</p>
+    <p>The <a href="http://tucuxi.shinyapps.io/data_products">web application</a> built
+with <a href="http://shiny.rstudio.com">Shiny</a> allows the user to enter the
+number of cylinders and weight. It visualizes the linear model and
+highlights the predicted mpg value in the diagram.</p>
 
-<p>At the heart of the application is the prediction of the mpg value. This
-is done with the linear model and the predict() function.</p>
+<p>At the heart of the application is the calculation of the mpg value. The
+value is computed with the linear model and the predict() function.</p>
 
-<p>For instance, with 6 cylinders and a weight of 3,500 lbs:</p>
+<p>For instance, for a care with 6 cylinders and a weight of 3,500 lbs, our
+model predicts:</p>
 
 <pre><code class="r">predict(lm, data.frame(cyl = 6, wt = 3.5))
 </code></pre>
