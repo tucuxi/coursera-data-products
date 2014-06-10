@@ -12,14 +12,14 @@ mode        : selfcontained # {standalone, draft}
 
 ## Overview
 
-Fuel efficiency is getting more important for car buyers.
+**Fuel efficiency** is getting increasingly important for car buyers.
 
 A popular measure for fuel efficiency is **Miles Per Gallon** (mpg).
 
-Using R and Shiny, we build a web application for predicting mpg from basic
+Using R and Shiny, we build a **web application** for predicting mpg from basic
 car specifications.
 
-The remainder of the presentation is organized as follows:
+The presentation is organized as follows:
 
 1. Data set
 2. Linear model for predicting miles per gallon
@@ -53,7 +53,7 @@ Column  | Variable    | Description
 
 ## Linear Model for Predicting Miles Per Gallon
 
-We build a linear model for mpg with two predictors:
+We build a **linear model** for mpg with two predictors:
 weight (wt) and number of cylinders (cyl).
 
 
@@ -67,7 +67,7 @@ weight (wt) and number of cylinders (cyl).
 ##        33.99         -3.21         -4.26         -6.07
 ```
 
-This model has statistically significant P-values (< 0.05) as shown below:
+This model has **statistically significant P-values** (< 0.05) as shown below:
 
 
 ```r
@@ -85,11 +85,12 @@ summary(lm)$coefficients[, 4]
 
 The [web application](http://tucuxi.shinyapps.io/data_products) built
 with [Shiny](http://shiny.rstudio.com) allows the user to enter the
-number of cylinders and weight. It visualizes the linear model and
-highlights the predicted mpg value in the diagram.
+number of cylinders and weight. It **plots the linear model** and
+**highlights the predicted mpg value** in the diagram.
 
 At the heart of the application is the calculation of the mpg value. The
-value is computed according to the linear model by the predict() function.
+value is computed according to the linear model by the **predict()**
+function.
 
 For instance, for a car with 6 cylinders and a weight of 3,500 lbs, our
 model predicts:
@@ -103,3 +104,9 @@ predict(lm, data.frame(cyl = 6, wt = 3.5))
 ##     1 
 ## 18.52
 ```
+
+<style>
+strong {
+  font-weight: bold;
+}
+</style>
