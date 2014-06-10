@@ -46,8 +46,9 @@
     <h2>Overview</h2>
   </hgroup>
   <article data-timings="">
-    <p>Fuel efficiency is getting more important for car buyers. A commonly used
-measure for fuel consumption is <strong>Miles Per Gallon</strong> (mpg).</p>
+    <p>Fuel efficiency is getting more important for car buyers.</p>
+
+<p>A popular measure for fuel efficiency is <strong>Miles Per Gallon</strong> (mpg).</p>
 
 <p>Using R and Shiny, we build a web application for predicting mpg from basic
 car specifications.</p>
@@ -69,8 +70,9 @@ car specifications.</p>
     <h2>Data Set</h2>
   </hgroup>
   <article data-timings="">
-    <p>We use the <strong>mtcars</strong> data set from the <strong>datasets</strong> package. It contains
-data extracted from the Motor Trend US magazine for 32 cars.</p>
+    <p>We use the <strong>mtcars</strong> data set from the <strong>datasets</strong> package, which contains
+data from Motor Trend US magazine for 32 cars. This will be the basis for the
+linear model.</p>
 
 <table><thead>
 <tr>
@@ -181,9 +183,9 @@ number of cylinders and weight. It visualizes the linear model and
 highlights the predicted mpg value in the diagram.</p>
 
 <p>At the heart of the application is the calculation of the mpg value. The
-value is computed with the linear model and the predict() function.</p>
+value is computed according to the linear model by the predict() function.</p>
 
-<p>For instance, for a care with 6 cylinders and a weight of 3,500 lbs, our
+<p>For instance, for a car with 6 cylinders and a weight of 3,500 lbs, our
 model predicts:</p>
 
 <pre><code class="r">predict(lm, data.frame(cyl = 6, wt = 3.5))

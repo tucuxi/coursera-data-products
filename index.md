@@ -12,8 +12,9 @@ mode        : selfcontained # {standalone, draft}
 
 ## Overview
 
-Fuel efficiency is getting more important for car buyers. A commonly used
-measure for fuel consumption is **Miles Per Gallon** (mpg).
+Fuel efficiency is getting more important for car buyers.
+
+A popular measure for fuel efficiency is **Miles Per Gallon** (mpg).
 
 Using R and Shiny, we build a web application for predicting mpg from basic
 car specifications.
@@ -30,8 +31,9 @@ The remainder of the presentation is organized as follows:
 
 
 
-We use the **mtcars** data set from the **datasets** package. It contains
-data extracted from the Motor Trend US magazine for 32 cars.
+We use the **mtcars** data set from the **datasets** package, which contains
+data from Motor Trend US magazine for 32 cars. This will be the basis for the
+linear model.
 
 Column  | Variable    | Description
 ------- | ----------- | -------------------
@@ -87,9 +89,9 @@ number of cylinders and weight. It visualizes the linear model and
 highlights the predicted mpg value in the diagram.
 
 At the heart of the application is the calculation of the mpg value. The
-value is computed with the linear model and the predict() function.
+value is computed according to the linear model by the predict() function.
 
-For instance, for a care with 6 cylinders and a weight of 3,500 lbs, our
+For instance, for a car with 6 cylinders and a weight of 3,500 lbs, our
 model predicts:
 
 
