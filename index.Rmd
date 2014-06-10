@@ -73,9 +73,10 @@ summary(lm)$coefficients[, 4]
 
 ## Shiny Application
 
-The [web application](http://tucuxi.shinyapps.io/data_products) built
-with [Shiny](http://shiny.rstudio.com) allows the user to enter the
-number of cylinders and weight. It **plots the linear model** and
+The web application built with [Shiny](http://shiny.rstudio.com)
+allows the user to enter the number of cylinders and weight.
+
+It **plots the linear model** and
 **highlights the predicted mpg value** in the diagram.
 
 At the heart of the application is the calculation of the mpg value. The
@@ -88,6 +89,8 @@ model predicts:
 ```{r}
 predict(lm, data.frame(cyl = 6, wt = 3.5))
 ```
+
+Try out the application [here](http://tucuxi.shinyapps.io/data_products)!
 
 <style>
 strong {
