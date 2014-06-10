@@ -177,18 +177,17 @@ weight (wt) and number of cylinders (cyl).</p>
     <h2>Shiny Application</h2>
   </hgroup>
   <article data-timings="">
-    <p>The web application built with <a href="http://shiny.rstudio.com">Shiny</a>
-allows the user to enter the number of cylinders and weight.</p>
+    <p>The web application built with <a href="http://shiny.rstudio.com">Shiny</a></p>
 
-<p>It <strong>plots the linear model</strong> and
-<strong>highlights the predicted mpg value</strong> in the diagram.</p>
+<ul>
+<li>prompts the user for number of cylinders and weight,</li>
+<li>plots the linear model,</li>
+<li>predicts the mpg value for the given parameters, and</li>
+<li>highlights the predicted mpg value in the plot.</li>
+</ul>
 
-<p>At the heart of the application is the calculation of the mpg value. The
-value is computed according to the linear model by the <strong>predict()</strong>
-function.</p>
-
-<p>For instance, for a car with 6 cylinders and a weight of 3,500 lbs, our
-model predicts:</p>
+<p>The prediction is done with the <strong>predict()</strong> function as shown in the
+following example for a car with 6 cylinders and a weight of 3,500 lbs:</p>
 
 <pre><code class="r">predict(lm, data.frame(cyl = 6, wt = 3.5))
 </code></pre>

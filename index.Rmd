@@ -74,17 +74,14 @@ summary(lm)$coefficients[, 4]
 ## Shiny Application
 
 The web application built with [Shiny](http://shiny.rstudio.com)
-allows the user to enter the number of cylinders and weight.
 
-It **plots the linear model** and
-**highlights the predicted mpg value** in the diagram.
+* prompts the user for number of cylinders and weight,
+* plots the linear model,
+* predicts the mpg value for the given parameters, and
+* highlights the predicted mpg value in the plot.
 
-At the heart of the application is the calculation of the mpg value. The
-value is computed according to the linear model by the **predict()**
-function.
-
-For instance, for a car with 6 cylinders and a weight of 3,500 lbs, our
-model predicts:
+The prediction is done with the **predict()** function as shown in the
+following example for a car with 6 cylinders and a weight of 3,500 lbs:
 
 ```{r}
 predict(lm, data.frame(cyl = 6, wt = 3.5))
